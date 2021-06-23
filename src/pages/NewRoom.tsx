@@ -13,7 +13,7 @@ export function NewRoom() {
   const history = useHistory();
   const [newRoom, setNewRoom] = useState('')
 
-  async function handleCreaterRoom(event: FormEvent) {
+  async function handleCreateRoom(event: FormEvent) {
     event.preventDefault();
 
     if (newRoom.trim() === '') {
@@ -46,7 +46,7 @@ export function NewRoom() {
           <img src={logoImg} alt="Letmeask" />
           <h1>{user?.name}</h1>
           <h2>Criar uma nova sala</h2>
-          <form onSubmit={handleCreaterRoom}>
+          <form onSubmit={handleCreateRoom}>
             <input
               type="text"
               placeholder="Nome da sala"
