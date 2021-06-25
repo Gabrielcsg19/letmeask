@@ -1,0 +1,21 @@
+Modificações realizadas:
+
+*Direcionamento do usuário para admin após criar sala
+*Alterada a posição da informação de usuário autenticado em NewRoom.tsx
+*Criada a imagem de exibição para quando não houver perguntas (Room.tsx e AdminRoom.tsx)
+*Link para visualizar como administrador caso o usuário logado seja o criador da sala (Room.tsx)
+*Link para visualizar como visitante (AdminRoom.tsx)
+
+Dicas do Diego
+
+*Direcionar para admin ao criar sala - ok
+*Responsividade (Verificar video do Mayke sobre responsividade no YouTube) ok ...
+*Temas dark/light
+*Versão PWA (Pesquisar sobre)
+*Alterar banco de dados (e.g Firestore Database, Supabase)
+*Alguma biblioteca CSS (e.g Styled Components)
+*Eslint, Prettier (Olhar vídeo no Youtube da Rocketseat sobre)
+*README.md detalhado
+*Componente de login
+
+juntos no próximo nível

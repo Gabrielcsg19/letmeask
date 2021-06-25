@@ -33,6 +33,11 @@
       margin: 32px 0 24px;
       display: flex;
       align-items: center;
+      justify-content: space-between;
+
+      > div {
+        display: flex;
+      }
 
       h1 {
         font-family: 'Poppins', sans-serif;
@@ -48,6 +53,11 @@
         color: #fff;
         font-weight: 500;
         font-size: 14px;
+      }
+
+      .admin-page-link {
+        font-size: 14px;
+        color: #737380;
       }
     }
 
@@ -107,6 +117,18 @@
     
     .question-list {
       margin-top: 32px;
+
+      .empty-questions {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        gap: 15px;
+
+        span {
+          color: #737380;
+        }
+      }
     }
   }
 }
