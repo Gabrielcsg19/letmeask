@@ -47,7 +47,7 @@
 
       span {
         margin-left: 16px;
-        background-color: #e559f9;
+        background-color: #EF3E36;
         border-radius: 99px;
         padding: 8px 16px;
         color: #fff;
@@ -79,24 +79,6 @@
         align-items: center;
         margin-top: 16px;
 
-        .user-info {
-          display: flex;
-          align-items: center;
-
-          img {
-            width: 32px;
-            height: 32px;
-            border-radius: 50%;
-          }
-
-          span {
-            margin-left: 8px;
-            color: #29292e;
-            font-weight: 500;
-            font-size: 14px;
-          }
-        }
-
         > span {
           font-size: 14px;
           color: #737388;
@@ -105,7 +87,7 @@
           button {
             background-color: transparent;
             border: 0;
-            color: #835afd;
+            color: #17BEBB;
             text-decoration: underline;
             font-size: 14px;
             font-weight: 500;

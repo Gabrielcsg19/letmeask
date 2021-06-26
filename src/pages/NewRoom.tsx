@@ -7,6 +7,7 @@ import '../styles/auth.scss';
 import { Button } from '../components/Button';
 import { useAuth } from '../hooks/useAuth';
 import { database } from '../services/firebase';
+import { UserInfo } from '../components/UserInfo';
 
 export function NewRoom() {
   const { user } = useAuth();
@@ -43,10 +44,7 @@ export function NewRoom() {
 
       <main>
         {user && (
-          <div className="user-info">
-            <img src={user.avatar} alt={user.name} />
-            <span>{user.name}</span>
-          </div>
+          <UserInfo />
         )}
         <div className="main-content">
           <img src={logoImg} alt="Letmeask" />

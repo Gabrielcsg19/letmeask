@@ -11,6 +11,7 @@ import emptyQuestionsImg from '../assets/images/empty-questions.svg'
 import { Button } from '../components/Button'
 import { RoomCode } from '../components/RoomCode'
 import { Question } from '../components/Question'
+import { UserInfo } from '../components/UserInfo'
 import '../styles/room.scss'
 
 type RoomParams = {
@@ -22,6 +23,7 @@ export function Room() {
   const params = useParams<RoomParams>();
   const [newQuestion, setNewQuestion] = useState('');
   const roomId = params.id;
+
   const { title, questions, roomAuthorId } = useRoom(roomId);
 
   async function handleSendQuestion(event: FormEvent) {
@@ -72,7 +74,9 @@ export function Room() {
         <div className="room-title">
           <div>
             <h1>Sala { title }</h1>
-            { questions.length > 0 && <span>{questions.length} pergunta(s)</span>}
+            {questions.length > 0 && (
+              <span>{questions.length} {questions.length === 1 ? 'pergunta' : 'perguntas'}</span>
+            )}
           </div>
           { user?.id === roomAuthorId && (
             <Link className="admin-page-link" to={`/admin/rooms/${roomId}`}>
@@ -90,12 +94,9 @@ export function Room() {
 
           <div className="form-footer">
             { user ? (
-              <div className="user-info">
-                <img src={user.avatar} alt={user.name} />
-                <span>{user.name}</span>
-              </div>
+              <UserInfo />
             ) : (
-              <span>Para enviar uma pergunta, <button onClick={signInWithGoogle}>faça seu login</button>.</span>
+              <span>Para enviar uma pergunta, <button onClick={ signInWithGoogle }>faça seu login</button>.</span>
             )}
 
             <Button type="submit" disabled={!user}>Enviar pergunta</Button>

@@ -1,0 +1,16 @@
+.user-info {
+  gap: 8px;
+  display: flex;
+  align-items: center;
+
+  img {
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+  }
+
+  span {
+    color: #737380;
+    font-size: 14px;
+  }
+}

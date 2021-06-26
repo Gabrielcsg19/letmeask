@@ -4,6 +4,8 @@ import { database } from '../services/firebase';
 import illustrationImg from '../assets/images/illustration.svg'
 import logoImg from '../assets/images/logo.svg';
 import googleIconImg from '../assets/images/google-icon.svg';
+import arrowImg from '../assets/images/arrow.svg';
+
 import '../styles/auth.scss';
 import { Button } from '../components/Button';
 import { useAuth } from '../hooks/useAuth';
@@ -50,10 +52,13 @@ export function Home() {
       <aside>
         <img src={illustrationImg} alt="Ilustração simbolizando perguntas e respostas" />
         <strong>Crie salas de Q&amp;A ao-vivo</strong>
-        <p>Tire as dúvidas das sua audiência em tempo-real</p>
+        <p>Tire as dúvidas da sua audiência em tempo-real</p>
+        <a href="#main-auth">
+          <img src={arrowImg} className="arrow" alt="Seta para baixo" />
+        </a>
       </aside>
 
-      <main>
+      <main id="main-auth">
         <div className="main-content">
           <img src={logoImg} alt="Letmeask" />
           <button onClick={handleCreateRoom} className="create-room">

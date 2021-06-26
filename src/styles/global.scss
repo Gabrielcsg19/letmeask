@@ -4,6 +4,10 @@
   box-sizing: border-box;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   background: #f8f8f8;
   color: #29292e;
@@ -13,6 +17,96 @@ body, input, button, textarea {
   font: 400 16px 'Roboto', sans-serif;
 }
 
-.dark {
-  background: #333;
+@media (max-width: 915px) {
+  #page-auth {
+    display: block;
+
+    aside, main {
+      height: 100vh;
+    }
+
+    main {
+      position: relative;
+    }
+  }
+
+  #page-room {
+    main {
+      padding: 0 30px;
+
+      .room-title {
+        flex-direction: column;
+        align-items: stretch;
+        
+        > div {
+          justify-content: space-between;
+        }
+
+        .admin-page-link {
+          margin-top: 15px;
+          text-align: right;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 450px) {
+  #page-auth {
+    aside {
+      padding: 50px 20px;
+      justify-content: flex-start;
+
+      img {
+        max-width: 150px;
+      }
+
+      strong {
+        font-size: 20px;
+        line-height: 35px;
+        letter-spacing: 5px;
+        word-spacing: 2px;
+        margin-top: 20px;
+      }
+
+      p {
+        font-size: 17px;
+      }
+
+      .arrow {
+        display: block;
+      }
+    }
+  }
+
+  #page-room {
+    header {
+      .content {
+        gap: 20px;
+        height: initial;
+
+        .room-code span {
+          font-size: 12px;
+        }
+
+        .button {
+          height: 40px;
+        }
+      }
+    }
+
+    .form-footer {
+      flex-direction: column;
+      gap: 15px;
+
+      .button {
+        width: 100%;
+        order: -1;
+      }
+
+      .user-info, span {
+        align-self: flex-start;
+      }
+    }
+  }
 }

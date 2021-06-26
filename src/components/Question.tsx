@@ -2,6 +2,7 @@ import { ReactNode } from 'react';
 import cx from 'classnames';
 
 import '../styles/question.scss';
+import { UserInfo } from '../components/UserInfo';
 
 type QuestionProps = {
   content: string;
@@ -18,6 +19,7 @@ export function Question({
   content, author, children,
   isAnswered = false,
   isHighLighted = false }: QuestionProps) {
+
   return (
     <div
       className={cx(
@@ -28,10 +30,7 @@ export function Question({
     >
       <p>{ content }</p>
       <footer>
-        <div className="user-info">
-          <img src={author.avatar} alt={author.name} />
-          <span>{author.name}</span>
-        </div>
+        <UserInfo />
         <div>
           {children}
         </div>

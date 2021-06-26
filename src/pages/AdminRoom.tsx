@@ -7,13 +7,15 @@ import answerImg from '../assets/images/answer.svg'
 import emptyQuestionsImg from '../assets/images/empty-questions.svg'
 
 import { Button } from '../components/Button'
-import { RoomCode } from '../components/RoomCode'
 import { Question } from '../components/Question'
 
 import { database } from '../services/firebase'
 import { useRoom } from '../hooks/useRoom'
 
 import '../styles/room.scss'
+import { useState } from 'react'
+import { useAuth } from '../hooks/useAuth'
+import { UserInfo } from '../components/UserInfo'
 
 type RoomParams = {
   id: string;
@@ -23,7 +25,10 @@ export function AdminRoom() {
   const history = useHistory();
   const params = useParams<RoomParams>();
   const roomId = params.id;
+  const [isAnswered, setIsAnswered] = useState(true);
+  const [isHighLighted, setHighLighted] = useState(true);
 
+  const { user } = useAuth();
   const { title, questions } = useRoom(roomId);
 
   async function handleEndRoom() {
@@ -42,14 +47,16 @@ export function AdminRoom() {
 
   async function handleCheckQuestionAsAnswered(questionId: string) {
     await database.ref(`rooms/${roomId}/questions/${questionId}`).update({
-      isAnswered: true
+      isAnswered
     });
+    setIsAnswered(!isAnswered)
   }
 
   async function handleHighLightQuestion(questionId: string) {
     await database.ref(`rooms/${roomId}/questions/${questionId}`).update({
-      isHighLighted: true
+      isHighLighted
     });
+    setHighLighted(!isHighLighted)
   }
 
   return (
@@ -57,10 +64,7 @@ export function AdminRoom() {
       <header>
         <div className="content">
           <img src={logoImg} alt="Letmeask" />
-          <div>
-            <RoomCode code={params.id} />
-            <Button onClick={handleEndRoom} isOutlined>Encerrar sala</Button>
-          </div>
+          <Button onClick={handleEndRoom} isOutlined>Encerrar sala</Button>
         </div>
       </header>
 
@@ -68,10 +72,17 @@ export function AdminRoom() {
         <div className="room-title">
           <div>
             <h1>Sala { title }</h1>
-            { questions.length > 0 && <span>{questions.length} pergunta(s)</span>}
+            {questions.length > 0 && (
+              <span>{questions.length} {questions.length === 1 ? 'pergunta' : 'perguntas'}</span>
+            )}
           </div>
           <Link className="admin-page-link" to={`/rooms/${roomId}`}>Visualizar como participante</Link>
         </div>
+
+        { user && (
+            <UserInfo />
+          )
+        }
         
         <div className="question-list">
           {questions.length > 0 ? (
@@ -83,22 +94,18 @@ export function AdminRoom() {
                 isAnswered={question.isAnswered}
                 isHighLighted={question.isHighLighted}
               >
-                {!question.isAnswered && (
-                  <>
-                    <button
-                    type="button"  
-                    onClick={() => handleCheckQuestionAsAnswered(question.id)}
-                    >
-                      <img src={checkImg} alt="Marcar pergunta como respondida" />
-                    </button>
-                    <button
-                      type="button"  
-                      onClick={() => handleHighLightQuestion(question.id)}
-                    >
-                      <img src={answerImg} alt="Dar destaque à pergunta" />
-                    </button>
-                  </>
-                )}
+                <button
+                type="button"  
+                onClick={() => handleCheckQuestionAsAnswered(question.id)}
+                >
+                  <img src={checkImg} alt="Marcar pergunta como respondida" />
+                </button>
+                <button
+                  type="button"  
+                  onClick={() => handleHighLightQuestion(question.id)}
+                >
+                  <img src={answerImg} alt="Dar destaque à pergunta" />
+                </button>
                 <button
                   type="button"  
                   onClick={() => handleDeleteQuestion(question.id)}
