@@ -5,7 +5,7 @@ import { NewRoom } from "./pages/NewRoom";
 import { AuthContextProvider } from './context/AuthContext'
 import { Room } from './pages/Room';
 import { AdminRoom } from './pages/AdminRoom';
-
+import './styles/global.scss'
 
 function App() {
   return (
