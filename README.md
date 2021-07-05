@@ -1,6 +1,6 @@
 # letmeask
 
-Precisa de um jeito rápido e prático para criar uma sala de conversação?
+# Precisa de um jeito rápido e prático para criar uma sala de conversação?
 
 ## 🚀 Simples! Basta se autenticar com sua conta Google e dar um nome à sua sala.
 
