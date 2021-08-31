@@ -1,6 +1,6 @@
 <h1 align="center">letmeask</h1><br>
 
-![Screenshot 2021-08-17 at 16-21-37 Letmeask](https://user-images.githubusercontent.com/54643425/129791054-260dbfe0-fccc-4cfd-b85a-74f9a33f838c.png)
+![Screenshot 2021-08-17 at 16-21-37 Letmeask](https://raw.githubusercontent.com/Gabrielcsg19/letmeask/master/assets/cover-img.png)
 
 ---
 Aplicação para criação de salas de Q&A ao-vivo desenvoldida com __React.js__ com dados servidos pelo __Firebase__.
